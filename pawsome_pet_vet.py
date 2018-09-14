@@ -1,12 +1,13 @@
+import time 
+
 def print_list(list_of_animals):
-       counter = 1;
+       counter = 0;
        for item in list_of_animals:
                print(counter, ") Name: ", item["name"], " Species: ", item["kind"])
                counter+=1
 
 def pawsome_pet_vet():
 
-   import time 
    print("Welcome to pawsome pet vet!")
    time.sleep(2)
    check_in_info = []
@@ -31,8 +32,8 @@ def pawsome_pet_vet():
            elif input1 == "2":
                   for x in range(0, len(check_in_info)):
                        print_list(check_in_info)
-                       user_input_lol = input("Which animal would you like to check out? ")
-                       check_in_info.remove(user_input_lol)
+                       user_input_lol = int(input("Which animal would you like to check out? "))
+                       check_in_info.pop(user_input_lol)
 
 
            elif input1 == "3":

@@ -29,7 +29,7 @@ def pawsome_pet_vet():
 
            elif input1 == "2":
                   for x in range(0, len(check_in_info)):
-                       print(x, check_in_info[x])
+                       print_list(list_of_animals)
                        user_input_lol = input("Which animal would you like to check out? ")
 
            elif input1 == "3":

@@ -32,27 +32,15 @@ def pawsome_pet_vet():
                   for x in range(0, len(check_in_info)):
                        print_list(check_in_info)
                        user_input_lol = input("Which animal would you like to check out? ")
-                       check_in_info["name"].delete(user_input_lol)
+                       check_in_info.remove(user_input_lol)
 
 
-
-
-
-           elif input1 == "7":
-                  print("Goodbye")
-                  break
-
-           elif input1 == "5":
-                  if len(check_in_info) > 0:
-                      for i in range(0, len(check_in_info)):
-                          most_urgent = [0]
-                          if check_in_info[i]["urgency"] >= most_urgent[0]:
-                              most_urgent.append(check_in_info[i]["urgency"])
-                              print("Name - " + check_in_info[i]["name"])
-                              print("Kind - " + check_in_info[i]["kind"])
-                              print(check_in_info[i]["urgency"])
-                  else:
-                      print("Sorry there are no pets checked in a this time")
+           elif input1 == "3":
+               if (len(check_in_info) > 0):
+                   print("ALL ANIMALS CHECKED IN")
+                   print_list(check_in_info)
+               else:
+                   print("No pets yet!")
 
 
 
@@ -71,12 +59,21 @@ def pawsome_pet_vet():
 
 
 
-           elif input1 == "3":
-               if (len(check_in_info) > 0):
-                   print("ALL ANIMALS CHECKED IN")
-                   print_list(check_in_info)
-               else:
-                   print("No pets yet!")
+           elif input1 == "5":
+                  if len(check_in_info) > 0:
+                      for i in range(0, len(check_in_info)):
+                          most_urgent = [0]
+                          if check_in_info[i]["urgency"] >= most_urgent[0]:
+                              most_urgent.append(check_in_info[i]["urgency"])
+                              print("Name - " + check_in_info[i]["name"])
+                              print("Kind - " + check_in_info[i]["kind"])
+                              print(check_in_info[i]["urgency"])
+                  else:
+                      print("Sorry there are no pets checked in a this time")
+
+
+
+           
 
 
            elif input1 == "6":
@@ -89,6 +86,12 @@ def pawsome_pet_vet():
 
                            else:
                                print("that animal is not checked in")
+
+
+
+           elif input1 == "7":
+                  print("Goodbye")
+                  break
 
 
 pawsome_pet_vet()

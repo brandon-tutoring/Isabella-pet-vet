@@ -32,6 +32,7 @@ def pawsome_pet_vet():
                   for x in range(0, len(check_in_info)):
                        print_list(check_in_info)
                        user_input_lol = input("Which animal would you like to check out? ")
+                       check_in_info["name"].delete(user_input_lol)
 
 
 

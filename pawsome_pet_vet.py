@@ -30,9 +30,13 @@ def pawsome_pet_vet():
                           print(check_in_info)
 
            elif input1 == "2":
-                  print_list(check_in_info)
-                  user_input_lol = int(input("Which animal would you like to check out? "))
-                  check_in_info.pop(user_input_lol)
+                  if len(check_in_info) > 0:
+                      print_list(check_in_info)
+                      user_input_lol = int(input("Which animal would you like to check out? "))
+                      check_in_info.pop(user_input_lol)
+                      
+                  else:
+                      print("No animals yet!")
 
 
            elif input1 == "3":
@@ -69,7 +73,7 @@ def pawsome_pet_vet():
                               print("Kind - " + check_in_info[i]["kind"])
                               print(check_in_info[i]["urgency"])
                   else:
-                      print("Sorry there are no pets checked in a this time")
+                      print("Sorry there are no pets checked in at this time")
 
 
 
@@ -77,15 +81,18 @@ def pawsome_pet_vet():
 
 
            elif input1 == "6":
-                   find_name = input("what is the name: ")
-                   for i in range(0, len(check_in_info)):
+                   if len(check_in_info) > 0:
+                       find_name = input("what is the name: ")
+                       for i in range(0, len(check_in_info)):
                            if find_name in check_in_info[i]["name"]:
                                print("Name - " + check_in_info[i]["name"])
                                print("Kind - " + check_in_info[i]["kind"])
                                print (check_in_info[i]["urgency"])
 
-                           else:
-                               print("that animal is not checked in")
+                       else:
+                           print("that animal is not checked in")
+                   else:
+                        print("No animals yet!")
 
 
 

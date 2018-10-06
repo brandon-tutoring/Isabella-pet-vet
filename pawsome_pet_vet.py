@@ -9,16 +9,19 @@ def print_list(list_of_animals):
 def pawsome_pet_vet():
 
    print("Welcome to pawsome pet vet!")
-   time.sleep(2)
    check_in_info = []
+   animals_we_take = ["dog", "cat"]
 
 
    while True:
            input1 = input("Would you like to: \n1)check in \n2)check out \n3)show all by name \n4)show all by most urgent \n5)show all by least urgent \n6)find by name \n7)quit?\n")
 
            if input1 == "1":
-                  name_input = input("what is the name: ")
-                  kind_input = input("what is the species: ")
+                  name_input = input("what is the name: ").strip()
+                  kind_input = input("what is the species: ").strip().lower()
+                  if kind_input not in animals_we_take:
+                      print("sorry, we do not accept that animal")
+                      continue
                   while True:
                       urgency_input = input("what is the urgency level: ")
                       if (urgency_input.isdigit()):
@@ -27,16 +30,26 @@ def pawsome_pet_vet():
                           break;
                       else:
                           print("That is not a valid number!  Try again")
-                          print(check_in_info)
 
            elif input1 == "2":
-                  if len(check_in_info) > 0:
-                      print_list(check_in_info)
-                      user_input_lol = int(input("Which animal would you like to check out? "))
-                      check_in_info.pop(user_input_lol)
-                      
-                  else:
+                  if len(check_in_info) == 0:
                       print("No animals yet!")
+                      continue
+                  print_list(check_in_info)
+                  check_out = input("Which animal would you like to check out? ")
+                  if not (check_out.isdigit()):
+                      print("That is not a number")
+                      continue
+                    
+                  check_out = int(check_out)
+
+                  if check_out >= len(check_in_info):
+                      print("That number is too big")
+                      continue
+
+                  check_in_info.pop(check_out)
+
+
 
 
            elif input1 == "3":
@@ -51,7 +64,9 @@ def pawsome_pet_vet():
            elif input1 == "4":
                   if len(check_in_info) > 0:
                       for i in range(0, len(check_in_info)):
-                          least_urgent = [100000]
+                          least_urgent = []
+                          if len(check_in_info) == 1:
+                              least_urgent = check_in_info
                           if check_in_info[i]["urgency"] <= least_urgent[0]:
                               least_urgent.append(check_in_info[i]["urgency"])
                               print("Name - " + check_in_info[i-1]["name"])

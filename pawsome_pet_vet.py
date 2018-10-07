@@ -61,21 +61,22 @@ def pawsome_pet_vet():
 
 
 
-           elif input1 == "4":
-                  if len(check_in_info) > 0:
-                      for i in range(0, len(check_in_info)):
-                          most_urgent = []
-                          if len(check_in_info) == 1:
-                              most_urgent = check_in_info
-                          if check_in_info[i]["urgency"] < most_urgent[0] or check_in_info[i]["urgency"] == most_urgent[0]:
-                              most_urgent.append(check_in_info[i]["urgency"])
-                              print("Name - " + check_in_info[i-1]["name"])
-                              print("Kind - " + check_in_info[i-1]["kind"])
-                              print(check_in_info[i-1]["urgency"])
-                  else:
-                      print("Sorry there are no pets checked in at this time")
-
-
+            elif start == "4":
+                       if len(check_out_info) == 0:
+                               print("Sorry there are no pets checked in a this time")
+                       elif len(check_out_info) == 1:
+                               print_pet(check_out_info[0])
+                       else:
+                               most_urgent = [check_out_info[0]]
+                               for i in range(1, len(check_out_info)):
+                                       if check_out_info[i]["urgency"] < most_urgent[0]["urgency"]:
+                                               continue
+                                       elif check_out_info[i]["urgency"] == most_urgent[0]["urgency"]:
+                                               most_urgent.append(check_out_info[i])
+                                       elif check_out_info[i]["urgency"] > most_urgent[0]["urgency"]:
+                                               most_urgent = check_out_info[i]
+                               for animal in most_urgent:
+                                       print_pet(animal)
 
 
            elif input1 == "5":

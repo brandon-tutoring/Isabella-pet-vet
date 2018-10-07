@@ -67,8 +67,7 @@ def pawsome_pet_vet():
                           most_urgent = []
                           if len(check_in_info) == 1:
                               most_urgent = check_in_info
-                          elif len(check_in_info) 
-                          if check_in_info[i]["urgency"] <= most_urgent[0]:
+                          if check_in_info[i]["urgency"] < most_urgent[0] or check_in_info[i]["urgency"] == most_urgent[0]:
                               most_urgent.append(check_in_info[i]["urgency"])
                               print("Name - " + check_in_info[i-1]["name"])
                               print("Kind - " + check_in_info[i-1]["kind"])

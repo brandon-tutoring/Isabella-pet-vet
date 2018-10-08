@@ -76,7 +76,7 @@ def pawsome_pet_vet():
                            elif check_in_info[i]["urgency"] > most_urgent[0]["urgency"]:
                                most_urgent = check_in_info[i]
                                for animal in most_urgent:
-                                   print_pet(animal)
+                                   print_list(animal)
 
 
            elif input1 == "5":

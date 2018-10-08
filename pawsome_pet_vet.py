@@ -14,7 +14,7 @@ def pawsome_pet_vet():
 
 
    while True:
-           input1 = input("Would you like to: \n1)check in \n2)check out \n3)show all by name \n4)show all by most urgent \n5)show all by least urgent \n6)find by name \n7)quit?\n")
+           input1 = input("Would you like to: \n1)check in \n2)check out \n3)show all by name \n4)show most urgent \n5)show least urgent \n6)find by name \n7)quit?\n")
 
            if input1 == "1":
                   name_input = input("what is the name: ").strip()

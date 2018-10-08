@@ -6,6 +6,11 @@ def print_list(list_of_animals):
                print(counter, ") Name: ", item["name"], " Species: ", item["kind"])
                counter+=1
 
+
+def print_pet(animal):
+       print("Name - " + animal["name"] + " | Kind - " + animal["kind"] + " | Urgency - ", animal["urgency"]) 
+
+
 def pawsome_pet_vet():
 
    print("Welcome to pawsome pet vet!")
@@ -65,33 +70,36 @@ def pawsome_pet_vet():
                    if len(check_in_info) == 0:
                        print("Sorry there are no pets checked in a this time")
                    elif len(check_in_info) == 1:
-                       print_list(check_in_info[0])
+                       print_pet(check_in_info[0])
                    else:
                        most_urgent = [check_in_info[0]]
-                       for i in range(1, len(check_in_info)):
+                       for i in range(1, len(check_in_info-1)):
                            if check_in_info[i]["urgency"] < most_urgent[0]["urgency"]:
                                continue
                            elif check_in_info[i]["urgency"] == most_urgent[0]["urgency"]:
                                most_urgent.append(check_in_info[i])
                            elif check_in_info[i]["urgency"] > most_urgent[0]["urgency"]:
                                most_urgent = check_in_info[i]
-                               for animal in most_urgent:
-                                   print_list(animal)
-
-
+                           for animal in most_urgent:
+                               print_pet(animal)
+                               
            elif input1 == "5":
-                  if len(check_in_info) > 0:
-                      for i in range(0, len(check_in_info)):
-                          least_urgent = [0]
-                          if check_in_info[i]["urgency"] >= least_urgent[0]:
-                              least_urgent.append(check_in_info[i]["urgency"])
-                              print("Name - " + check_in_info[i]["name"])
-                              print("Kind - " + check_in_info[i]["kind"])
-                              print(check_in_info[i]["urgency"])
+                  if len(check_in_info) == 1:
+                       print_pet(check_in_info[0])
+                  elif len(check_in_info) < 1:
+                      print("Sorry there are no pets checked in a this time")
+                      pawesome_pet_vet()
                   else:
-                      print("Sorry there are no pets checked in at this time")
-
-
+                       least_urgent = [check_in_info[0]]
+                       for i in range(1, len(check_in_info-1)):
+                           if check_in_info[i]["urgency"] > least_urgent[0]["urgency"]:
+                               continue
+                               pawesome_pet_vet()
+                           elif check_in_info[i]["urgency"] == least_urgent[0]["urgency"]:
+                               least_urgent.append(check_in_info[i])
+                           elif check_in_info[i]["urgency"] < least_urgent[0]["urgency"]:
+                               least_urgent = check_in_info[i]
+                               
 
            
 

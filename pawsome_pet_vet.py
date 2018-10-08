@@ -73,7 +73,7 @@ def pawsome_pet_vet():
                        print_pet(check_in_info[0])
                    else:
                        most_urgent = [check_in_info[0]]
-                       for i in range(1, len(check_in_info-1)):
+                       for i in range(1, len(check_in_info)):
                            if check_in_info[i]["urgency"] < most_urgent[0]["urgency"]:
                                continue
                            elif check_in_info[i]["urgency"] == most_urgent[0]["urgency"]:
@@ -91,7 +91,7 @@ def pawsome_pet_vet():
                       pawesome_pet_vet()
                   else:
                        least_urgent = [check_in_info[0]]
-                       for i in range(1, len(check_in_info-1)):
+                       for i in range(1, len(check_in_info)):
                            if check_in_info[i]["urgency"] > least_urgent[0]["urgency"]:
                                continue
                                pawesome_pet_vet()
@@ -99,6 +99,8 @@ def pawsome_pet_vet():
                                least_urgent.append(check_in_info[i])
                            elif check_in_info[i]["urgency"] < least_urgent[0]["urgency"]:
                                least_urgent = check_in_info[i]
+                           for animal in most_urgent:
+                               print_pet(animal)
                                
 
            

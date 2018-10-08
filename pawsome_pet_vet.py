@@ -65,7 +65,7 @@ def pawsome_pet_vet():
                    if len(check_in_info) == 0:
                        print("Sorry there are no pets checked in a this time")
                    elif len(check_in_info) == 1:
-                       print_pet(check_in_info[0])
+                       print_list(check_in_info[0])
                    else:
                        most_urgent = [check_in_info[0]]
                        for i in range(1, len(check_in_info)):
